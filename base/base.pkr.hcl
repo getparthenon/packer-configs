@@ -23,14 +23,16 @@ build {
       "export DEBIAN_FRONTEND=\"noninteractive\"",
       "apt update",
       "apt upgrade -y",
-      "apt install -y ansible bzip2 ca-certificates curl flake8 gcc catatonit gnupg gzip iproute2 procps python3 sudo tar unzip xz-utils zip bash"]
+      "apt install -y ansible bzip2 ca-certificates curl gcc  gzip iproute2 procps python3 sudo tar unzip xz-utils zip bash"]
   }
 
   post-processors {
     post-processor "docker-tag" {
       repository = "getparthenon/ubuntu-ansible"
       tags       = ["21.04"]
-      only       = ["docker.ubuntu-base"]
+      only       = ["docker.raw-base"]
     }
+
+    post-processor "docker-push" {}
   }
 }
