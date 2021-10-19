@@ -24,3 +24,11 @@ jobs:
       - name: Packer build base
         run: |
           packer build -color=false -on-error=abort base/
+
+      - name: Packer init
+        run: packer init .
+      - name: Packer validate
+        run: packer validate -syntax-only .
+      - name: Packer build base
+        run: |
+          packer build -color=false -on-error=abort .
