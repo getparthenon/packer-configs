@@ -18,4 +18,4 @@ jobs:
         run: packer validate -syntax-only .
       - name: Packer build
         run: |
-          packer build -color=false -on-error=abort
+          packer build -color=false -on-error=abort .
