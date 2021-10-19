@@ -2,6 +2,8 @@ name: Packer
 
 on:
   push:
+  schedule:
+    - cron: '0 2 * * *' # run at 2 AM UTC
 
 jobs:
   packer:
@@ -24,7 +26,7 @@ jobs:
         with:
           command: validate
           arguments: -syntax-only
-          target: packer.pkr.hcl
+          target: base/base.pkr.hcl
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
