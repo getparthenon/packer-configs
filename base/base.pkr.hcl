@@ -23,7 +23,7 @@ build {
       "export DEBIAN_FRONTEND=\"noninteractive\"",
       "apt update",
       "apt upgrade -y",
-      "apt install -y ansible bzip2 ca-certificates curl gcc  gzip iproute2 procps python3 sudo tar unzip xz-utils zip bash"]
+      "apt install -y ansible bzip2 ca-certificates curl gcc gnupg gzip iproute2 procps python3 sudo tar unzip xz-utils zip bash"]
   }
 
   post-processors {
