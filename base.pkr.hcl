@@ -26,13 +26,13 @@ build {
       "apt install -y ansible bzip2 ca-certificates curl gcc  gzip iproute2 procps python3 sudo tar unzip xz-utils zip bash"]
   }
 
-  #post-processors {
-  #  post-processor "docker-tag" {
-  #    repository = "getparthenon/ubuntu-ansible"
-  #    tags       = ["21.04"]
-  #    only       = ["docker.raw-base"]
-  #  }
+  post-processors {
+    post-processor "docker-tag" {
+      repository = "getparthenon/ubuntu-ansible"
+      tags       = ["21.04"]
+      only       = ["docker.raw-base"]
+    }
 
-  #  post-processor "docker-push" {}
-  #}
+    post-processor "docker-push" {}
+  }
 }
