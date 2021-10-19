@@ -18,7 +18,7 @@ jobs:
         uses: hashicorp/packer-github-actions@master
         with:
           command: init
-          target: base/base.pkr.hcl
+          target: base.pkr.hcl
 
       # validate templates
       - name: Validate Template
@@ -26,7 +26,7 @@ jobs:
         with:
           command: validate
           arguments: -syntax-only
-          target: base/base.pkr.hcl
+          target: base.pkr.hcl
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -43,6 +43,6 @@ jobs:
         with:
           command: build
           arguments: "-color=false -on-error=abort"
-          target: base/base.pkr.hcl
+          target: base.pkr.hcl
         env:
           PACKER_LOG: 1
