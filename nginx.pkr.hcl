@@ -1,22 +1,10 @@
-packer {
-  required_plugins {
-    docker = {
-      version = ">= 1.0.0"
-      source  = "github.com/hashicorp/docker"
-    }
-    ansible = {
-      version = ">= 1.0.0"
-      source  = "github.com/hashicorp/ansible"
-    }
-  }
-}
 
-source "docker" "ubuntu-base" {
+source "docker" "ubuntu-nginx" {
   image = "getparthenon/ubuntu-ansible:21.04"
 
   commit = true
   changes = [
-    "EXPOSE 9000",
+    "EXPOSE 80",
     "ENTRYPOINT [\"/entrypoint.sh\"]"
   ]
 }
@@ -24,7 +12,7 @@ source "docker" "ubuntu-base" {
 build {
   name    = "ubuntu-nginx"
   sources = [
-    "source.docker.ubuntu-base"
+    "source.docker.ubuntu-nginx"
   ]
 
   provisioner "file" {
@@ -44,7 +32,7 @@ build {
     post-processor "docker-tag" {
       repository = "getparthenon/ubuntu-nginx"
       tags       = ["21.04"]
-      only       = ["docker.ubuntu-base"]
+      only       = ["docker.ubuntu-nginx"]
     }
 
     post-processor "docker-push" {}
