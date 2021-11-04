@@ -11,6 +11,11 @@ build {
     "source.docker.ubuntu-levant"
   ]
 
+  provisioner "ansible-local" {
+    playbook_file = "./levant/playbook.yml"
+  }
+
+
   provisioner "shell" {
     inline = [
       "curl -L https://github.com/hashicorp/levant/releases/download/0.2.9/linux-amd64-levant -o /levant",
