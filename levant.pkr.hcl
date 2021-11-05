@@ -26,7 +26,7 @@ build {
   post-processors {
     post-processor "docker-tag" {
       repository = "getparthenon/levant"
-      tags       = ["21.04"]
+      tags       = ["latest"]
       only       = ["docker.ubuntu-levant"]
     }
 
