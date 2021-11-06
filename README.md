@@ -1,6 +1,6 @@
 # packer-configs
 
-The packer configs to generate the docker images used for Parthenon's docker deployment. 
+The packer configs to generate the docker images used for Parthenon's docker deployment.
 
 These are built daily
 
@@ -12,3 +12,6 @@ A ubuntu image with nginx installed
 
 A ubuntu image with php-fpm installed.
 
+## Levant
+
+A ubuntu image with nomad and levant installed.
