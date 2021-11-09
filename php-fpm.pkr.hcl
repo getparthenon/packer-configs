@@ -75,7 +75,7 @@ build {
     post-processor "docker-tag" {
       repository = "getparthenon/ubuntu-php-fpm"
       tags       = ["8.1"]
-      only       = ["docker.ubuntu-fpm-fpm"]
+      only       = ["docker.ubuntu-php-fpm"]
     }
 
     post-processor "docker-push" {
