@@ -1,0 +1,28 @@
+---
+- name: php-fpm
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+    - name: Add ondrej/php
+      ansible.builtin.apt_repository:
+        repo: ppa:ondrej/php
+
+    - name: install packages
+      apt: name={{ item }} update_cache=yes state=latest
+      with_items:
+        - php8.0-dev
+        - php8.0-cli
+        - php8.0-curl
+        - php8.0-fpm
+        - php8.0-intl
+        - php8.0-xml
+        - php8.0-mbstring
+        - php8.0-zip
+        - php8.0-mysql
+        - php8.0-redis
+        - php8.0-pgsql
+        - pkg-php-tools
+
+    - name: stop php8.0-fpm
+      service: name=php8.0-fpm state=stopped
