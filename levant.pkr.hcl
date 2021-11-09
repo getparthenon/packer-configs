@@ -1,6 +1,6 @@
 
 source "docker" "ubuntu-levant" {
-  image = "getparthenon/ubuntu-ansible:21.04"
+  image = "getparthenon/ubuntu-ansible:20.04"
 
   commit = true
 }

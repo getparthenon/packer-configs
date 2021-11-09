@@ -8,7 +8,7 @@ packer {
 }
 
 source "docker" "raw-base" {
-  image  = "ubuntu:21.04"
+  image  = "ubuntu:20.04"
   commit = true
 }
 
@@ -29,7 +29,7 @@ build {
   post-processors {
     post-processor "docker-tag" {
       repository = "getparthenon/ubuntu-ansible"
-      tags       = ["21.04"]
+      tags       = ["20.04"]
       only       = ["docker.raw-base"]
     }
 
