@@ -5,6 +5,7 @@ source "docker" "ubuntu-php-fpm" {
   commit = true
   changes = [
     "EXPOSE 9000",
+    "ONBUILD RUN ln -sf /dev/stdout /var/log/php8.0-fpm.log",
     "ENTRYPOINT [\"/entrypoint.sh\"]"
   ]
 }

@@ -5,6 +5,8 @@ source "docker" "ubuntu-nginx" {
   commit = true
   changes = [
     "EXPOSE 80",
+    "ONBUILD RUN ln -sf /dev/stdout /var/log/nginx/access.log",
+    "ONBUILD RUN ln -sf /dev/stderr /var/log/nginx/error.log",
     "ENTRYPOINT [\"/entrypoint.sh\"]"
   ]
 }
