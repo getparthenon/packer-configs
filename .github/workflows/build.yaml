@@ -1,4 +1,4 @@
-name: Packer
+name: Image builds
 
 on:
   push:
