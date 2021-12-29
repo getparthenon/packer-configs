@@ -19,6 +19,7 @@
         - php8.1-xml
         - php8.1-mbstring
         - php8.1-zip
+        - php8.1-redis
         - php8.1-mysql
         - php8.1-pgsql
 
