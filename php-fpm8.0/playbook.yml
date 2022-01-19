@@ -7,7 +7,12 @@
     - name: Add ondrej/php
       ansible.builtin.apt_repository:
         repo: ppa:ondrej/php
-
+        
+    - name: Hold pkg-php-tools
+      dpkg_selections:
+        name: pkg-php-tools
+        selection: hold
+        
     - name: install packages
       apt: name={{ item }} update_cache=yes state=latest
       with_items:
