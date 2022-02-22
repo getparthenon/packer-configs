@@ -17,7 +17,7 @@ build {
   ]
 
   provisioner "file" {
-    source      = "php-fpm8.1/entrypoint.sh"
+    source      = "nginx-php-fpm8.1/entrypoint.sh"
     destination = "entrypoint.sh"
   }
 
