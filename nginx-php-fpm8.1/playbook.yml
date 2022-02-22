@@ -1,0 +1,38 @@
+---
+- name: nginx-php-fpm
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+    - name: Add user "nginx"
+      user:
+        name: nginx
+        shell: /sbin/nologin
+        append: yes
+        comment: "nginx nologin User"
+        state: present
+
+    - name: Add ondrej/php
+      ansible.builtin.apt_repository:
+        repo: ppa:ondrej/php
+
+    - name: install packages
+      apt: name={{ item }} update_cache=yes state=latest
+      with_items:
+        - php8.1-dev
+        - php8.1-cli
+        - php8.1-curl
+        - php8.1-dom
+        - php8.1-fpm
+        - php8.1-intl
+        - php8.1-xml
+        - php8.1-mbstring
+        - php8.1-zip
+        - php8.1-redis
+        - php8.1-mysql
+        - php8.1-pgsql
+        - php8.1-amqp
+        - nginx
+
+    - name: stop nginx
+      service: name=nginx state=stopped
