@@ -36,3 +36,6 @@
 
     - name: stop nginx
       service: name=nginx state=stopped
+
+    - name: start php8.1-fpm
+      service: name=php8.1-fpm state=started
