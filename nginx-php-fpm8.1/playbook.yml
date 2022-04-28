@@ -34,7 +34,17 @@
         - php8.1-amqp
         - nginx
         - sendmail
-        
+
+    - name: Configure Sendmail
+      expect:
+        command: sendmailconfig
+        responses:
+            Question:
+              - Configure sendmail with the existing \/etc\/mail\/sendmail.conf? \[Y\]: y
+              - Configure sendmail with the existing \/etc\/mail\/sendmail.mc? \[Y\]: y
+              - Reload the running sendmail now with the new configuration? \[Y\]: y
+
+
     - name: stop nginx
       service: name=nginx state=stopped
 
