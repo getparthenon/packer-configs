@@ -30,6 +30,20 @@
         - php8.0-pgsql
         - php8.0-amqp
         - sendmail
+        - pip
+
+    - name: install pexpect
+      pip:
+        name: pexpect
+
+    - name: Configure Sendmail
+      expect:
+        command: sendmailconfig
+        responses:
+            "sendmail.conf": y
+            "sendmail.mc": y
+            "Reload": y
+        timeout: 300
 
     - name: stop php8.0-fpm
       service: name=php8.0-fpm state=stopped
