@@ -34,7 +34,7 @@
         - php8.1-amqp
         - nginx
         - sendmail
-
+        
     - name: stop nginx
       service: name=nginx state=stopped
 
