@@ -11,6 +11,10 @@
         append: yes
         comment: "nginx nologin User"
         state: present
+        
+    - name: install pexpect
+      pip:
+        name: pexpect
 
     - name: Add ondrej/php
       ansible.builtin.apt_repository:
@@ -43,7 +47,7 @@
               - Configure sendmail with the existing \/etc\/mail\/sendmail.conf? \[Y\]: y
               - Configure sendmail with the existing \/etc\/mail\/sendmail.mc? \[Y\]: y
               - Reload the running sendmail now with the new configuration? \[Y\]: y
-
+        timeout: 120
 
     - name: stop nginx
       service: name=nginx state=stopped
