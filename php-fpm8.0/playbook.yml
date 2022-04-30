@@ -29,6 +29,7 @@
         - php8.0-redis
         - php8.0-pgsql
         - php8.0-amqp
+        - php8.0-mongodb
         - sendmail
         - pip
 

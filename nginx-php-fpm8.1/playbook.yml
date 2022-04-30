@@ -32,6 +32,7 @@
         - php8.1-mysql
         - php8.1-pgsql
         - php8.1-amqp
+        - php8.1-mongodb
         - nginx
         - sendmail
         - pip
