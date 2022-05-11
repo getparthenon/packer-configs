@@ -25,6 +25,7 @@
         - php8.1-pgsql
         - php8.1-amqp
         - php8.1-mongodb
+        - wkhtmltopdf
         - sendmail
         - pip
 
