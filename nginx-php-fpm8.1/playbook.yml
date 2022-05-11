@@ -34,6 +34,7 @@
         - php8.1-amqp
         - php8.1-mongodb
         - nginx
+        - wkhtmltopdf
         - sendmail
         - pip
 
