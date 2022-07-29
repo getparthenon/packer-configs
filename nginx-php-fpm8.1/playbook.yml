@@ -34,6 +34,7 @@
         - php8.1-amqp
         - php8.1-mongodb
         - php8.1-maxminddb
+        - php8.1-gd
         - nginx
         - wkhtmltopdf
         - sendmail
