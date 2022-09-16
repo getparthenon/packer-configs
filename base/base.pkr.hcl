@@ -11,6 +11,14 @@ source "docker" "raw-base" {
   image  = "ubuntu:20.04"
   commit = true
 }
+variable "docker_login" {
+  type    = string
+  default = "${env("DOCKER_LOGIN")}"
+}
+variable "docker_token" {
+  type    = string
+  default = "${env("DOCKER_TOKEN")}"
+}
 
 build {
   name = "ubuntu-base"
@@ -34,8 +42,8 @@ build {
     }
 
     post-processor "docker-push" {
-      login_username = "${env("DOCKER_LOGIN")}"
-      login_password = "${env("DOCKER_TOKEN")}"
+      login_username = "${var.docker_login}"
+      login_password = "${var.docker_token}"
     }
   }
 }
