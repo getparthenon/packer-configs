@@ -10,3 +10,12 @@ packer {
     }
   }
 }
+
+variable "docker_login" {
+  type    = string
+  default = "${env("DOCKER_LOGIN")}"
+}
+variable "docker_token" {
+  type    = string
+  default = "${env("DOCKER_TOKEN")}"
+}

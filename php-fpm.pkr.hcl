@@ -43,6 +43,9 @@ build {
     }
 
     post-processor "docker-push" {
+      login = true
+      login_username = "${var.docker_login}"
+      login_password = "${var.docker_token}"
     }
   }
 }
@@ -80,6 +83,9 @@ build {
     }
 
     post-processor "docker-push" {
+      login = true
+      login_username = "${var.docker_login}"
+      login_password = "${var.docker_token}"
     }
   }
 }

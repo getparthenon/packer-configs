@@ -30,6 +30,10 @@ build {
       only       = ["docker.ubuntu-levant"]
     }
 
-    post-processor "docker-push" {}
+    post-processor "docker-push" {
+      login = true
+      login_username = "${var.docker_login}"
+      login_password = "${var.docker_token}"
+    }
   }
 }
