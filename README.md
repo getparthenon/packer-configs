@@ -11,7 +11,3 @@ A ubuntu image with nginx installed
 ## PHP-FPM
 
 A ubuntu image with php-fpm installed.
-
-## Levant
-
-A ubuntu image with nomad and levant installed.
