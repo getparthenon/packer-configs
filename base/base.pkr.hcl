@@ -33,6 +33,9 @@ build {
       only       = ["docker.raw-base"]
     }
 
-    post-processor "docker-push" {}
+    post-processor "docker-push" {
+      login_username = "${env("DOCKER_LOGIN")}"
+      login_password = "${env("DOCKER_TOKEN")}"
+    }
   }
 }

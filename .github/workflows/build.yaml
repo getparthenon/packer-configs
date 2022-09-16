@@ -23,6 +23,7 @@ jobs:
         run: packer validate -syntax-only base/
       - name: Packer build base
         run: |
+          env
           packer build -color=false -on-error=abort base/
 
       - name: Packer init
