@@ -89,3 +89,43 @@ build {
     }
   }
 }
+
+build {
+  name = "php-fpm8.2"
+  sources = [
+    "source.docker.ubuntu-php-fpm"
+  ]
+
+  provisioner "file" {
+    source      = "php-fpm8.2/entrypoint.sh"
+    destination = "entrypoint.sh"
+  }
+
+  provisioner "shell" {
+    inline = [
+      "chmod +x /entrypoint.sh"
+    ]
+  }
+  provisioner "ansible-local" {
+    playbook_file = "./php-fpm8.2/playbook.yml"
+  }
+
+  provisioner "file" {
+    source      = "./php-fpm8.2/configs/php-fpm/"
+    destination = "/etc/php/8.2/fpm"
+  }
+
+  post-processors {
+    post-processor "docker-tag" {
+      repository = "getparthenon/ubuntu-php-fpm"
+      tags       = ["8.2"]
+      only       = ["docker.ubuntu-php-fpm"]
+    }
+
+    post-processor "docker-push" {
+      login = true
+      login_username = "${var.docker_login}"
+      login_password = "${var.docker_token}"
+    }
+  }
+}

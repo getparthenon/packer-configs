@@ -11,21 +11,21 @@
     - name: install packages
       apt: name={{ item }} update_cache=yes state=latest
       with_items:
-        - php8.2-dev
-        - php8.2-cli
-        - php8.2-curl
-        - php8.2-dom
-        - php8.2-fpm
-        - php8.2-intl
-        - php8.2-xml
-        - php8.2-mbstring
-        - php8.2-zip
-        - php8.2-redis
-        - php8.2-mysql
-        - php8.2-pgsql
-        - php8.2-amqp
-        - php8.2-mongodb
-        - php8.2-gd
+        - php8.1-dev
+        - php8.1-cli
+        - php8.1-curl
+        - php8.1-dom
+        - php8.1-fpm
+        - php8.1-intl
+        - php8.1-xml
+        - php8.1-mbstring
+        - php8.1-zip
+        - php8.1-redis
+        - php8.1-mysql
+        - php8.1-pgsql
+        - php8.1-amqp
+        - php8.1-mongodb
+        - php8.1-gd
         - wkhtmltopdf
         - sendmail
         - pip
@@ -43,5 +43,5 @@
             "Reload": y
         timeout: 300
 
-    - name: stop php8.2-fpm
-      service: name=php8.2-fpm state=stopped
+    - name: stop php8.1-fpm
+      service: name=php8.1-fpm state=stopped
