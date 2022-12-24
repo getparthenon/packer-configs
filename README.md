@@ -11,3 +11,7 @@ A ubuntu image with nginx installed
 ## PHP-FPM
 
 A ubuntu image with php-fpm installed.
+
+* 8.0
+* 8.1
+* 8.2
